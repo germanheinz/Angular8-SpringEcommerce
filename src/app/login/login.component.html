@@ -1,0 +1,22 @@
+<mat-card style="width: 460px; margin: auto; margin-top: 100px;">
+    <form [formGroup]="form" autocomplete="off" style="padding-left: 20px;padding-right: 20px;" novalidate (ngSubmit)="login()" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Username" formControlName="username" name="username" id="username">
+            <!--<mat-hint align="end">Not more then 60 characters long.</mat-hint>-->
+            <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Password" formControlName="password" name="password" id="password">
+            <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+        </mat-form-field>
+
+        <mat-card-actions align="center">
+            <button mat-raised-button color="primary" [disabled]="!form.valid">Create</button>
+            <!--<button type="button"> mat-raised-button color="warn" (click)="onCancel()">Cancel</button>-->
+        </mat-card-actions>
+    </form>
+    <a routerLink="/register" routerLinkActive="active">Registrarme</a>
+    <!--<button mat-raised-button color="primary">Register</button>-->
+</mat-card>

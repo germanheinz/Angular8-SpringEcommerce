@@ -1,0 +1,39 @@
+<mat-card style="width: 460px; margin: auto; margin-top: 100px;">
+    <form [formGroup]="form" style="padding-left: 20px;padding-right: 20px;" autocomplete="off" novalidate (ngSubmit)="register()" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <div class="forma">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Username" formControlName="username" name="username" id="username">
+                <mat-error *ngIf="hasError('username', 'required')">Name is required</mat-error>
+                <mat-error *ngIf="hasError('username', 'maxlength')">You have more than 60 characters</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Nombre" formControlName="nombre" name="nombre" id="nombre">
+                <mat-error *ngIf="hasError('nombre', 'required')">Name is required</mat-error>
+                <mat-error *ngIf="hasError('nombre', 'maxlength')">You have more than 60 characters</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Apellido" formControlName="apellido" name="apellido" id="apellido">
+                <mat-error *ngIf="hasError('apellido', 'required')">Name is required</mat-error>
+                <mat-error *ngIf="hasError('apellido', 'maxlength')">You have more than 60 characters</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Email" formControlName="email" name="email" id="email">
+                <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Password" formControlName="password" name="password" id="password">
+                <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+            </mat-form-field>
+
+            <mat-card-actions align="center">
+                <button mat-raised-button color="primary" [disabled]="!form.valid">Create</button>
+                <!--<button type="button"> mat-raised-button color="warn" (click)="onCancel()">Cancel</button>-->
+            </mat-card-actions>
+        </div>
+    </form>
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+</mat-card>
