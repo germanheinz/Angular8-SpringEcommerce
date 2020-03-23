@@ -18,12 +18,12 @@ export class NewclientComponent implements OnInit {
   errores: string[];
 
   constructor(private clienteService: ClienteService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.cargarCliente();
-    this.getDate();
+    //this.getDate();
   }
   cargarCliente(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -68,7 +68,7 @@ export class NewclientComponent implements OnInit {
     let date = ('0' + dateObj.getDate()).slice(-2);
     let year = dateObj.getFullYear();
     let shortDate = year + '-' + month + '-' + date;
-    this.cliente.createAt = shortDate;
+    this.cliente.createAt = dateObj;
   }
   onSubmit(data: any) {
   console.log(data);

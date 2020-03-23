@@ -15,14 +15,17 @@ export class UsuarioService {
   constructor(private http: HttpClient) {this.cargarStorage();}
 
   estaLogueado(){
+    console.log(this._token);
     return this._token.length > 5 ? true : false;
   }
 
-  cargarStorage(){
-    if(localStorage.getItem('token')){
-    this._token = localStorage.getItem('token');
-    this._usuario = JSON.parse(localStorage.getItem('usuario'));
-    }else{
+  cargarStorage() {
+    this._token = sessionStorage.getItem('token');
+    this._usuario = JSON.parse(sessionStorage.getItem('usuario'));
+    if (this.token) {
+    console.log('entro a cargarStroage' + this._token);
+    } else {
+      console.log('paso por el else cargarStroage' + this._token);
       this._token = '';
       this._usuario = null;
     }
@@ -34,9 +37,13 @@ export class UsuarioService {
     if (this._usuario != null) {
       return this._usuario;
     } else if (this.usuario == null && sessionStorage.getItem('usuario') == null) {
-        this._usuario = JSON.parse(sessionStorage.getItem('usuario')) as Usuario;
-        return this._usuario;
+        console.log('nuevo Usuario' + this._usuario);
+        if (sessionStorage.getItem('usuario') != null) {
+          this._usuario = JSON.parse(sessionStorage.getItem('usuario'));
+          return this._usuario;
+        }
     }
+    console.log('nuevo Usuario' + this._usuario);
     return new Usuario();
   }
   // GETTER TOKEN //

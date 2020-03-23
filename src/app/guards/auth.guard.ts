@@ -15,6 +15,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       console.log("paso por guard 17-03-20");
       if (this.usuarioService.estaLogueado()) {
+        console.log("esta logueado");
         if (this.isTokenExpirado()) {
           console.log('token expirado');
           this.usuarioService.logout();
@@ -22,6 +23,7 @@ export class AuthGuard implements CanActivate {
           return false;
         }
         return true;
+        
       }
       return false;
   }

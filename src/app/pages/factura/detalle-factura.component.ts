@@ -12,7 +12,7 @@ import { FacturaService } from 'src/app/services/facturas/factura.service';
 export class DetalleFacturaComponent implements OnInit {
 
   factura: Factura;
-  titulo: string = 'Factura';
+  titulo: string = 'Facturaaa';
 
   // ActivatedRoute lo que hace es tomar parametros de url como el id
   constructor(private facturasService: FacturaService, private activatedRoute: ActivatedRoute) { }

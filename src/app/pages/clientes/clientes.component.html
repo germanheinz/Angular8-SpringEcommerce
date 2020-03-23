@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let cliente of clientes">
-                    <th scope="row"><img src="http://localhost:8080/api/clientes/upload/img/{{cliente.foto}}" *ngIf="cliente?.foto" (click)="abrirModal(cliente)" alt="" class="img-thumbnail rounded" style="width: 80px; cursor: pointer;height: 60px;">
+                    <th scope="row"><img src="http://localhost:8080/api/clientes/uploads/img/{{cliente.foto}}" *ngIf="cliente?.foto" (click)="abrirModal(cliente)" alt="" class="img-thumbnail rounded" style="width: 80px; cursor: pointer;height: 60px;">
                         <img src="http://localhost:8080/images/no-user.png" *ngIf="!cliente?.foto" (click)="abrirModal(cliente)" alt="sin foto" class="img-thumbnail rounded" style="width: 80px; cursor: pointer;height: 60px;">
                         <td>{{cliente.nombre}}</td>
                         <td>{{cliente.apellido}}</td>

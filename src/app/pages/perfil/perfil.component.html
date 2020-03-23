@@ -35,21 +35,22 @@
                                         <button (click)="subirFoto() " [disabled]="!fotoSeleccionada " class="btn btn-outline-secondary " type="button ">Upload</button>
                                     </div>
                                 </div>
-                                <div *ngIf="progreso>0" class="progress">
+                                <!--<div *ngIf="progreso>0" class="progress">
                                     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{width:progreso+'%'}" aria-valuenow="25" attr.aria-valuemin="{{progreso}}" aria-valuemax="100">
                                         {{progreso}}%
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                             <div class="col-sm">
-                                <img src="http://localhost:8080/api/clientes/upload/img/{{cliente.foto}}" *ngIf="cliente?.foto" alt="" class="img-thumbnail rounded">
+                                <img src="http://localhost:8080/api/clientes/uploads/img/{{cliente.foto}}" *ngIf="cliente?.foto" alt="" class="img-thumbnail rounded">
                             </div>
-                            <td><button type="button" [routerLink]="['clientes/factura/form/', cliente.id]" class="btn btn-success btn-sm">Crear Factura</button></td>
+                            <!--  <td><button type="button" [routerLink]="['clientes/factura/form/', cliente.id]" class="btn btn-success btn-sm">Crear Factura</button></td>
+                            -->
                         </div>
                         <div class="row">
-                            <div class="alert alert-info my-4" *ngIf="cliente.facturas.length==0">
+                            <!-- <div class="alert alert-info my-4" *ngIf="cliente.facturas.length==0">
                                 No hay facturas asignadas para el cliente {{cliente.nombre}} {{cliente.apellido}}
-                            </div>
+                            </div>-->
                             <table *ngIf="cliente.facturas.length>0" class="table table-bordered table-striped my-4">
                                 <thead>
                                     <tr>
