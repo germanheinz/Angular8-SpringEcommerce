@@ -36,6 +36,8 @@ export class FacturasComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       let clienteId = +params.get('clienteId');
       this.clienteService.getCliente(clienteId).subscribe(cliente => this.factura.cliente = cliente);
+      console.log(this.factura.cliente);
+      console.log(this.factura);
     });
 
     this.productosFiltrados = this.autocompleteControl.valueChanges
@@ -112,11 +114,11 @@ export class FacturasComponent implements OnInit {
   }
 
   create(facturaForm): void {
+    //FIXME REPARAR SAVE FACTURA
     console.log(this.factura);
     if (this.factura.items.length == 0) {
       this.autocompleteControl.setErrors({ 'invalid': true });
     }
-
     if (facturaForm.form.valid && this.factura.items.length > 0) {
       this.facturaService.create(this.factura).subscribe(factura => {
         Swal.fire(this.titulo, `Factura ${factura.descripcion} creada con éxito!`, 'success');

@@ -25,7 +25,7 @@ export class FacturaService {
     return this.http.get<Producto[]>(`${this.urlEndPoint}/filter-productos/${term}`);
   }
   filtrarProductos(term: string): Observable<Producto[]> {
-    return this.http.get<Producto[]>(`${this.urlEndPoint}/filtrar-productos/${term}`);
+    return this.http.get<Producto[]>(`${this.urlEndPoint}/products/find/${term}`);
   }
   create(factura: Factura): Observable<Factura>{
     return this.http.post<Factura>(this.urlEndPoint, factura);

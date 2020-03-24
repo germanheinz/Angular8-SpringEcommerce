@@ -74,7 +74,7 @@
                 <div class="form-group row">Gran Total: <span class="badge badge-secondary">{{factura.calcularGranTotal()}}</span>
 
                     <div class="col-sm-6">
-                        <input type="submit" (click)="create()" value="crear factura" class="btn btn-secondary" [disabled]="facturaForm.form.invalid || factura.items.length == 0">
+                        <input type="submit" (click)="create()" value="crear factura" class="btn btn-secondary" [disabled]="facturaForm.invalid">
                     </div>
                 </div>
             </form>
